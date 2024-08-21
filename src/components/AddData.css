@@ -102,7 +102,11 @@
 @media (max-width: 768px) {
   .data-form {
    
-    max-width: 100%;
+    
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
   }
 
   .form-group input,

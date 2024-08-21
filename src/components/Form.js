@@ -2,13 +2,37 @@ import React, { useState } from "react";
 import "./Form.css";
 
 function Form({ users }) {
-  const [searchCnic, setSearchCnic] = useState(""); 
-  const [searchResult, setSearchResult] = useState(null); 
+  const [searchCnic, setSearchCnic] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
+
+  // Function to format CNIC
+  const formatCnic = (cnic) => {
+    const cleanedCnic = cnic.replace(/\D/g, ""); // Remove non-digit characters
+    if (cleanedCnic.length <= 5) {
+      return cleanedCnic;
+    }
+    if (cleanedCnic.length <= 12) {
+      return cleanedCnic.slice(0, 5) + "-" + cleanedCnic.slice(5);
+    }
+    return (
+      cleanedCnic.slice(0, 5) +
+      "-" +
+      cleanedCnic.slice(5, 12) +
+      "-" +
+      cleanedCnic.slice(12, 13)
+    );
+  };
+
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    const formattedCnic = formatCnic(inputValue);
+    setSearchCnic(formattedCnic);
+  };
 
   const handleSearch = () => {
-    const user = users.find((u) => u.cnic === searchCnic);
+    const cleanedCnic = searchCnic.replace(/-/g, ""); // Remove dashes for searching
+    const user = users.find((u) => u.cnic.replace(/-/g, "") === cleanedCnic);
     setSearchResult(user ? user : "No Record Found");
-    setSearchCnic('')
   };
 
   return (
@@ -17,13 +41,11 @@ function Form({ users }) {
         <input
           placeholder="Please Enter CNIC NO"
           value={searchCnic}
-          type={Number}
-          onChange={(e) => setSearchCnic(e.target.value)} 
+          onChange={handleChange}
         />
         <button className="srch-btn" onClick={handleSearch}>
           Search
         </button>
-
       </div>
 
       {searchResult && (
