@@ -1,16 +1,34 @@
-/* Main Container */
+
 .data {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f7f9fc;
+ 
+
   padding: 20px;
   margin-top: 80px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.button-div{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content:flex-start;
+    padding-left: 40px;
+    box-sizing: border-box;
+ 
+    width: 100%;
+    height: 50px;
+}
+.submitbtn{
+  background-color: #007bff;
+  height: 35px;
+  color: white;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 4px;
 }
 
-/* Form Styles */
 .data-form {
   background-color: white;
   padding: 40px;
@@ -19,15 +37,26 @@
   width: 100%;
   max-width: 450px;
   box-sizing: border-box;
+  margin-top: 500px;
+  margin-bottom: 80px;
+}
+.data-form {
+  animation-name: animatetop;
+  animation-duration: 0.4s;
 }
 
-/* Form Group Styling */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0;}
+  to {top: 0; opacity: 1;}
+}
+
+
 .form-group {
   margin-bottom: 20px;
   width: 100%;
 }
 
-/* Label Styling */
+
 .form-group label {
   font-size: 16px;
   font-weight: bold;
@@ -36,7 +65,7 @@
   display: block;
 }
 
-/* Input and Select Styles */
+
 .form-group input,
 .form-group select {
   width: 100%;
@@ -46,35 +75,29 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
+  font-family: 'Times New Roman', Times, serif;
   transition: border-color 0.3s ease-in-out;
 }
 
-/* Focus Styling for Input/Select */
+
 .form-group input:focus,
 .form-group select:focus {
   border-color: #007bff;
 }
 
-/* Button Styling */
-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+
+.button-div button{
+    height: 35px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
 }
 
-/* Button Hover Effect */
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Styles */
 @media (max-width: 768px) {
   .data-form {
     padding: 30px;
@@ -92,7 +115,7 @@ button:hover {
   }
 }
 
-/* Further adjustments for very small screens */
+
 @media (max-width: 480px) {
   .data-form {
     padding: 20px;
@@ -107,4 +130,28 @@ button:hover {
     font-size: 15px;
     padding: 10px;
   }
+  .form-overlay{
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+  .form-group{
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
+
+.form-overlay{
+      position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

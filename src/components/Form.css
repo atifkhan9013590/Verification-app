@@ -8,15 +8,45 @@
 }
 
 .Form input{
-    height: 40px;
-    width: 200px;
-    margin-bottom: 20px;
+    height: 37px;
+    width:100%;
+    border: 0.2px solid lightgray;
+    outline: none;
+    border-radius: 2px;
+    padding-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+  
+}
+.Form input:focus{
+    border: 0.2px solid black;
+
 }
 .srch-btn{
     width: 100px;
-    height: 30px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+    height: 38px;
+    background-color: rgb(34, 100, 232);
+    color: white;
+    border: 0.2px solid rgb(34, 100, 232);
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 2px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+  
 
+}
+.input-button-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-left: 30px;
+    gap: 20px;
+    padding-right: 30px;
+    box-sizing: border-box;
+   
+}
+.search-result{
+    font-family: 'Times New Roman', Times, serif;
 }

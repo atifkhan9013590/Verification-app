@@ -1,16 +1,78 @@
 .display-data {
-  margin-top: 20px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
 }
 
-.display-data ul {
-  list-style-type: none;
-  padding: 0;
+/* Add a responsive container for the table */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scroll when needed */
 }
 
-.display-data li {
+table {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 800px; /* Set a minimum width to avoid collapsing too much on smaller screens */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: rgb(213, 211, 211);
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  border: none;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 0.2px solid lightgray;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+tbody tr:nth-child(even) {
   background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 4px;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+th {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+td {
+  font-size: 14px;
+}
+
+/* Optional: To keep the table scroll bar visible on mobile without the need for two-finger swipe */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+.edticon{
+margin-left: 10px;
+color: #007bff;
+cursor: pointer;
+}
+.dlticon{
+margin-left: 10px;
+color: red;
+cursor: pointer;
 }
