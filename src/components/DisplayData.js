@@ -12,7 +12,7 @@ function DisplayData({ users, deleteUser, editUser, setShowForm }) {
   return (
     <div className="display-data">
       <div className="table-container">
-        <table>
+       {users.length>0 ? <table>
           <thead>
             <tr>
               <th>Name</th>
@@ -51,6 +51,7 @@ function DisplayData({ users, deleteUser, editUser, setShowForm }) {
             ))}
           </tbody>
         </table>
+        :<p>NO DATA ADDED YET</p>}
       </div>
     </div>
   );
