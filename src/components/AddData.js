@@ -13,12 +13,11 @@ function AddData({ addUser }) {
 
   const handleCnicChange = (e) => {
     let cnic = e.target.value.replace(/\D/g, "");
-    if (cnic.length <= 5) {
-      cnic = cnic;
-    } else if (cnic.length <= 12) {
+    if (cnic.length > 5) {
       cnic = cnic.slice(0, 5) + "-" + cnic.slice(5);
-    } else {
-      cnic = cnic.slice(0, 5) + "-" + cnic.slice(5, 12) + "-" + cnic.slice(12);
+    }
+    if (cnic.length > 12) {
+      cnic = cnic.slice(0, 12) + "-" + cnic.slice(12);
     }
 
     setFormData({ ...formData, cnic });
