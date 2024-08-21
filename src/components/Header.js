@@ -9,6 +9,7 @@ function Header({ shownavbar, setshownavbar }) {
 
     const handleclick=(nav) => {
         navigate(nav)
+        setshownavbar(false)
     }
 
   return (
