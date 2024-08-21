@@ -1,0 +1,110 @@
+/* Main Container */
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+/* Form Styles */
+.data-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Label Styling */
+.form-group label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Input and Select Styles */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Focus Styling for Input/Select */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .data-form {
+    padding: 30px;
+    max-width: 100%;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .data-form {
+    padding: 20px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

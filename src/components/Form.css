@@ -1,0 +1,21 @@
+.Form {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ margin-top: 40px;
+}
+
+.Form input{
+    height: 40px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+.srch-btn{
+    width: 100px;
+    height: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}

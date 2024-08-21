@@ -1,0 +1,129 @@
+.Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(50, 49, 49);
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+   padding-top: 10px;
+   padding-bottom: 10px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    z-index: 999;
+}
+.first-section,.second-section{
+    display: none;
+}
+
+.left-section p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor: pointer;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size: 14px;
+}
+.left-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    width: 100%;
+   
+}
+
+
+.right-section button{
+    border: 1px solid green;
+     background-color: rgb(50, 49, 49);
+     color: white;
+     padding: 10px 15px;
+     cursor: pointer;
+     transition: background-color, 0.15s ;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size: 14px;
+     border-radius: 3px;
+}
+.icon{
+    display: none;
+
+}
+.right-section button:hover{
+    background-color: green;
+    color: white;
+}
+@media(max-width:768px){
+    .icon{
+        display: flex;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .right-section{
+        display: none;
+    }
+    .left-section{
+        display: none;
+    }
+    .Header{
+        display: flex;
+        flex-direction: column;
+    }
+    .first-section{
+        display: flex;
+        flex-direction:row;
+       
+        justify-content: space-between;
+        align-items: center;
+      
+        width: 100%;
+        color: white;
+    }
+    .second-section{
+       
+        width: 100%;
+    }
+    .second-section {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    height: 0; /* Start with a height of 0 */
+    opacity: 0; /* Start with opacity 0 */
+    overflow: hidden; /* Hide the overflowing content */
+    transition: height 0.4s ease, opacity 0.4s ease; /* Transition for smooth effect */
+}
+
+.second-section.open {
+    height: 100px; 
+    opacity: 1; 
+}
+.lgin{
+      border: 1px solid green;
+     background-color: rgb(50, 49, 49);
+     color: white;
+     padding: 10px 15px;
+     cursor: pointer;
+     transition: background-color, 0.15s ;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size: 14px;
+     border-radius: 3px;
+}
+.lgin:hover{
+    background-color: green;
+}
+.second-section p{
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+}
