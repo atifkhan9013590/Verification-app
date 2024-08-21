@@ -22,6 +22,7 @@
 .submitbtn{
   background-color: #007bff;
   height: 35px;
+  width: 100%;
   color: white;
   border: none;
   padding-left: 20px;
@@ -118,7 +119,9 @@
 
 @media (max-width: 480px) {
   .data-form {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
   }
 
   .form-group input,
@@ -135,11 +138,7 @@
     padding-right: 30px;
     box-sizing: border-box;
   }
-  .form-group{
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-  }
+  
 }
 
 .form-overlay{
