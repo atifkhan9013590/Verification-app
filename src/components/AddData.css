@@ -101,7 +101,7 @@
 
 @media (max-width: 768px) {
   .data-form {
-    padding: 30px;
+   
     max-width: 100%;
   }
 
@@ -119,8 +119,8 @@
 
 @media (max-width: 480px) {
   .data-form {
-    padding-left: 20px;
-    padding-right: 20px;
+  
+    width: 100%;
     box-sizing: border-box;
   }
 
