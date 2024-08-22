@@ -65,13 +65,14 @@ margin-top: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  padding-left: 10px;
   width: 100%;
-  padding-left: 40px;
-  gap: 20px;
-  padding-right: 40px;
+
+  gap: 10px;
+  padding-right: 10px;
   box-sizing: border-box;
   z-index: 10;
+  
 }
 
 .search-result {
