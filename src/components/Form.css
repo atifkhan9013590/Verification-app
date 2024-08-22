@@ -1,52 +1,95 @@
 .Form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+margin-top: 0px;
+  margin-bottom: 50px;
+  width: 100%;
+  min-height: 100vh; /* Ensure full page height coverage */
+  position: relative;
+  z-index: 1; /* Keep form content above the overlay */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../Images/picture-logo.avif'); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure it sits behind the form */
+  opacity: 0.7; /* Control image opacity */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 223, 207, 0.7); /* Green overlay with opacity */
+  z-index: 1; /* Place it behind the image */
+}
+
+.Form input {
+  height: 37px;
+  width: 100%;
+  border: 0.2px solid lightgray;
+  outline: none;
+  border-radius: 2px;
+  padding-left: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Form input:focus {
+  border: 0.2px solid black;
+}
+
+.srch-btn {
+  height: 38px;
+  background-color: rgb(34, 100, 232);
+  color: white;
+  border: 0.2px solid rgb(34, 100, 232);
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 2px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.input-button-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-left: 40px;
+  gap: 20px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.search-result {
+    width: 100%;
+  font-family: 'Times New Roman', Times, serif;
  display: flex;
- flex-direction: column;
  align-items: center;
  justify-content: center;
- margin-top: 40px;
- margin-bottom: 50px;
+ z-index: 10;
 }
 
-.Form input{
-    height: 37px;
-    width:100%;
-    border: 0.2px solid lightgray;
-    outline: none;
-    border-radius: 2px;
-    padding-left: 10px;
-    font-family: 'Times New Roman', Times, serif;
-  
-}
-.Form input:focus{
-    border: 0.2px solid black;
-
-}
-.srch-btn{
-    width: 100px;
-    height: 38px;
-    background-color: rgb(34, 100, 232);
-    color: white;
-    border: 0.2px solid rgb(34, 100, 232);
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 2px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    cursor: pointer;
-  
-
-}
-.input-button-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-left: 30px;
-    gap: 20px;
-    padding-right: 30px;
-    box-sizing: border-box;
-   
-}
-.search-result{
-    font-family: 'Times New Roman', Times, serif;
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.9); /* Light background for grid with slight opacity */
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgb(97, 95, 95);
 }

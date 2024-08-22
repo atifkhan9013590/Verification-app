@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./AddData.css";
-
 import DisplayData from "./DisplayData";
-
+import { toast } from "react-hot-toast";
 function AddData({
-  addUser,
   users,
   deleteUser,
   editUser,
   formData,
   setFormData,
   isEditing,
+  setUsers,
+  setIsEditing,
 }) {
+  const [showForm, setShowForm] = useState(false);
+   const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
-  const [showForm, setShowForm] = useState(false); 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(`${apiUrl}/user`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Failed to fetch users", error);
+      }
+    };
+
+    fetchUsers();
+  }, [apiUrl, setUsers]);
 
   const handleCnicChange = (e) => {
     let cnic = e.target.value.replace(/\D/g, "");
@@ -32,9 +49,51 @@ function AddData({
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    const token = localStorage.getItem("token");
     e.preventDefault();
-    addUser(formData);
+
+    try {
+      if (isEditing) {
+        await axios.put(`${apiUrl}/user/${formData._id}`, formData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        toast.success("Record updated");
+      } else {
+        await axios.post(`${apiUrl}/user`, formData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        toast.success("Record Added");
+      }
+
+      setFormData({
+        name: "",
+        fname: "",
+        cnic: "",
+        licenseNo: "",
+        licenseType: "",
+        expiryDate: "",
+        issueDate: "",
+      });
+      setShowForm(false);
+
+      const response = await axios.get(`${apiUrl}/user`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Failed to submit data", error);
+      toast.error(error.response.data.message);
+    }
+  };
+
+  const handleClick = () => {
+    setShowForm(true);
+  };
+
+  const handleOverlayClick = () => {
+    setShowForm(false);
+    setIsEditing(false)
     setFormData({
       name: "",
       fname: "",
@@ -44,32 +103,12 @@ function AddData({
       expiryDate: "",
       issueDate: "",
     });
-    setShowForm(false); 
-  };
-
-  const handleClick = () => {
-    setShowForm(true); 
-  };
-
-  const handleOverlayClick = () => {
-    setShowForm(false); 
-     setFormData({
-       name: "",
-       fname: "",
-       cnic: "",
-       licenseNo: "",
-       licenseType: "",
-       expiryDate: "",
-       issueDate: "",
-     });
   };
 
   return (
     <div className="data">
       <div className="button-div">
-        <button onClick={handleClick}>
-          Add New Record
-        </button>
+        <button onClick={handleClick}>Add New Record</button>
       </div>
 
       {showForm && (
@@ -79,6 +118,7 @@ function AddData({
             onSubmit={handleSubmit}
             className="data-form"
           >
+            {/* Form fields */}
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -169,11 +209,18 @@ function AddData({
               />
             </div>
 
-            <button className="submitbtn" type="submit">{isEditing ? "Update Data" : "Add Data"}</button>
+            <button className="submitbtn" type="submit">
+              {isEditing ? "Update Data" : "Add Data"}
+            </button>
           </form>
         </div>
       )}
-      <DisplayData users={users} deleteUser={deleteUser} editUser={editUser} setShowForm={setShowForm} />
+      <DisplayData
+        users={users}
+        deleteUser={deleteUser}
+        editUser={editUser}
+        setShowForm={setShowForm}
+      />
     </div>
   );
 }

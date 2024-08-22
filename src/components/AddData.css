@@ -20,11 +20,14 @@
     height: 50px;
 }
 .submitbtn{
-  background-color: #007bff;
+ background-color: rgb(50, 49, 49);
   height: 35px;
   width: 100%;
   color: white;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 4px;
@@ -89,14 +92,18 @@
 
 .button-div button{
     height: 35px;
-    background-color: #007bff;
+    background-color: rgb(50, 49, 49);
+    font-weight: 500;
     border: none;
     color: white;
     font-family: 'Times New Roman', Times, serif;
     border-radius: 4px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {

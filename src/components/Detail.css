@@ -1,17 +1,28 @@
 .picture-div{
+  display: flex;
+  flex-direction: column;
     width: 100%;
-  
+  margin: 0px;
+  padding: 0px;
+ 
 }
-@media(max-width:768px){
-  .picture-div{
-    margin-top: 60px;
-  }
-   
 
-}
 .background{
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
    
+}
+.last-div-line{
+
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+}
+.last-div-line p{
+background-color: green;
+padding: 10px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
 }

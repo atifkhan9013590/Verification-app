@@ -7,6 +7,9 @@ function Detail({ users }) {
     <div className="picture-div">
       <img src={background} className="background" alt="back" />
       <Form users={users} />
+      <div className="last-div-line">
+        <p>Traffic Police of Pakistan</p>
+      </div>
     </div>
   );
 }
